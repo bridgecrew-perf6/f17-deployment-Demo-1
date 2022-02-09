@@ -4,9 +4,13 @@ const path = require('path')
 
 const app = express()
 
-app.use(cors(express.json))
+app.use(express.json()))
 app.use(cors())
 
+
+app.get('/',(req,res) => {
+    res.sendFile(path.join(__dirname, '../public/inex.html'))
+})
 const port = process.envPORT || 4000
 
 app.listen(4000, () => console.log(`server running on 4000`))
